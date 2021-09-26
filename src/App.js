@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
-import { Layout } from "antd";
+import { Switch, Route, Link } from "react-router-dom";
+import { Layout, Typography, Space } from "antd";
 import {
   CryptoCurrencies,
   CryptoDetails,
@@ -10,6 +10,7 @@ import {
   Navbar,
   News,
 } from "./components";
+const { Title } = Typography;
 
 const App = () => {
   return (
@@ -39,6 +40,17 @@ const App = () => {
             </Switch>
           </div>
         </Layout>
+        <div className="footer">
+          <Title level={5}>
+            Crypto Stonks
+            <br /> All rights reserved.
+          </Title>
+          <Space>
+            <Link to="/">Home</Link>
+            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/news">News</Link>
+          </Space>
+        </div>
       </div>
     </div>
   );
