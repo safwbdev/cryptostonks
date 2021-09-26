@@ -65,7 +65,7 @@ const Home = () => {
           <Link to="/news">Show more</Link>
         </Title>
       </div>
-      <News />
+      <News simplified={true} />
     </>
   );
 };
