@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import HTMLParser from "html-react-parser";
 import millify from "millify";
-import { Row, Col, Typography } from "antd";
-import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
+import { Row, Col, Typography, Select } from "antd";
+import {
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} from "../services/cryptoApi";
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -15,12 +18,21 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import LineChart from "./LineChart";
 
 const { Title, Text } = Typography;
+const { Option } = Select;
 
 const CryptoDetails = () => {
   const { id } = useParams();
+  const [timeperiod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(id);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    id,
+    timeperiod,
+  });
+
+  const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
   const cryptoDetails = data?.data?.coin;
 
@@ -93,6 +105,21 @@ const CryptoDetails = () => {
           market cap and supply.
         </p>
       </Col>
+      <Select
+        defaultValue="7d"
+        className="select-timeperiod"
+        placeholder="Select Time Period"
+        onChange={(value) => setTimePeriod(value)}
+      >
+        {time.map((date) => (
+          <Option key={date}>{date}</Option>
+        ))}
+      </Select>
+      <LineChart
+        coinHistory={coinHistory}
+        currentPrice={millify(cryptoDetails.price)}
+        coinName={cryptoDetails.name}
+      />
       <Col className="stats-container">
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">
