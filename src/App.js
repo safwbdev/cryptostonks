@@ -1,26 +1,39 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import {
+  CryptoCurrencies,
+  CryptoDetails,
+  Exchanges,
+  Home,
+  Navbar,
+  News,
+} from "./components";
 
 const App = () => {
   return (
     <div className="app">
-      <Switch>
-        <Route exact path="/">
-          Home
-        </Route>
-        <Route exact path="/exchanges">
-          Exchanges
-        </Route>
-        <Route exact path="/cryptocurrencies">
-          Cryptocurrencies
-        </Route>
-        <Route exact path="/crypto">
-          Coin details
-        </Route>
-        <Route exact path="/news">
-          News
-        </Route>
-      </Switch>
+      <div className="navbar">
+        <Navbar />
+      </div>
+      <div className="main">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/exchanges">
+            <Exchanges />
+          </Route>
+          <Route exact path="/cryptocurrencies">
+            <CryptoCurrencies />
+          </Route>
+          <Route exact path="/crypto/:id">
+            <CryptoDetails />
+          </Route>
+          <Route exact path="/news">
+            <News />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 };
