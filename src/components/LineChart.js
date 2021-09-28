@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Typography } from "antd";
+import { Col, Row, Typography, Card } from "antd";
 import { Line } from "react-chartjs-2";
 
 const { Title } = Typography;
@@ -55,7 +55,9 @@ const LineChart = ({ coinName, currentPrice, coinHistory }) => {
           </Title>
         </Col>
       </Row>
-      <Line data={data} options={options} />
+      <Card>
+        <Line data={data} options={options} />
+      </Card>
     </>
   );
 };
