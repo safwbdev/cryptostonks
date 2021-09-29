@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router";
 import HTMLParser from "html-react-parser";
 import millify from "millify";
-import { Row, Col, Typography, Select } from "antd";
+import { Row, Col, Typography, Select, Card } from "antd";
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
@@ -97,6 +97,12 @@ const CryptoDetails = () => {
   return (
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
+        <img
+          className="crypto-image"
+          src={cryptoDetails.iconUrl}
+          alt={cryptoDetails.name}
+          style={{ maxWidth: "80px" }}
+        />
         <Title level={2} className="coin-name">
           {cryptoDetails.name} ({cryptoDetails.slug}) Price
         </Title>
@@ -120,9 +126,10 @@ const CryptoDetails = () => {
         currentPrice={millify(cryptoDetails.price)}
         coinName={cryptoDetails.name}
       />
-      <Col className="stats-container">
-        <Col className="coin-value-statistics">
-          <Col className="coin-value-statistics-heading">
+      <Row gutter={[32, 32]} className="statistics-row">
+        <Col xs={24} sm={12} lg={12}>
+          <Card className="coin-stats-card">
+            {" "}
             <Title level={3} className="coin-details-heading">
               {CryptoDetails.name} Value Statistics
             </Title>
@@ -136,10 +143,10 @@ const CryptoDetails = () => {
                 <Text className="stats">{value}</Text>
               </Col>
             ))}
-          </Col>
+          </Card>
         </Col>
-        <Col className="other-stats-info">
-          <Col className="coin-value-statistics-heading">
+        <Col xs={24} sm={12} lg={12}>
+          <Card className="other-stats-card">
             <Title level={3} className="coin-details-heading">
               Other Statistics
             </Title>
@@ -153,31 +160,38 @@ const CryptoDetails = () => {
                 <Text className="stats">{value}</Text>
               </Col>
             ))}
-          </Col>
+          </Card>
         </Col>
-      </Col>
-      <Col className="coin-desc-link">
-        <Row className="coin-desc">
-          <Title level={3} className="coin-details-heading">
-            What is {cryptoDetails.name}?{HTMLParser(cryptoDetails.description)}
-          </Title>
-        </Row>
-        <Col className="coin-links">
-          <Title level={3} className="coin-details-heading">
-            {cryptoDetails.name} Links
-          </Title>
-          {cryptoDetails.links.map((link) => (
-            <Row className="coin-link" key={link.name}>
-              <Title level={5} className="link-name">
-                {link.type}
+      </Row>
+      <Row gutter={[32, 32]} className="info-row">
+        <Col xs={24} sm={24} lg={16}>
+          <Card className="coin-stats-card">
+            <Row className="coin-desc">
+              <Title level={3} className="coin-details-heading">
+                What is {cryptoDetails.name}?
               </Title>
-              <a href={link.url} target="_blank" rel="noreferrer">
-                {link.name}
-              </a>
+              <p>{HTMLParser(cryptoDetails.description)}</p>
             </Row>
-          ))}
+          </Card>
         </Col>
-      </Col>
+        <Col xs={24} sm={12} lg={8} className="coin-links">
+          <Card className="coin-links-card">
+            <Title level={3} className="coin-details-heading">
+              {cryptoDetails.name} Links
+            </Title>
+            {cryptoDetails.links.map((link) => (
+              <Row className="coin-link" key={link.name}>
+                <Title level={5} className="link-name">
+                  {link.type}
+                </Title>
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.name}
+                </a>
+              </Row>
+            ))}
+          </Card>
+        </Col>
+      </Row>
     </Col>
   );
 };

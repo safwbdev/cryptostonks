@@ -54,11 +54,11 @@ const Navbar = () => {
           <Item icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
           </Item>
-          <Item icon={<FundOutlined />}>
-            <Link to="/exchanges">Exchanges</Link>
-          </Item>
           <Item icon={<DollarOutlined />}>
             <Link to="/cryptocurrencies">Crypto Currencies</Link>
+          </Item>
+          <Item icon={<FundOutlined />}>
+            <Link to="/exchanges">Exchanges</Link>
           </Item>
           <Item icon={<ThunderboltOutlined />}>
             <Link to="/news">News</Link>

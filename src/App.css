@@ -174,7 +174,7 @@ a:hover {
 
 .coin-details-heading {
   font-weight: 700 !important;
-  margin-top: 20px !important;
+  /* margin-top: 20px !important; */
   color: var(--pink) !important;
 }
 
@@ -184,13 +184,24 @@ a:hover {
   border-bottom: 1px solid var(--border);
   font-size: 1rem;
   opacity: 0.9;
-  padding: 20px;
+  padding: 20px 0 !important;
+}
+.coin-stats:last-child {
+  border: 0 !important;
+}
+
+.coin-stats-card,
+.other-stats-card,
+.coin-links-card {
+  /* .coin-stats-card { */
+  border-radius: 10px !important;
 }
 
 .coin-stats-name {
   display: flex;
   gap: 10px;
   font-size: 1rem;
+  padding: 0 !important;
 }
 
 .stats {
@@ -241,7 +252,10 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  padding: 20px;
+  padding: 20px 0;
+}
+.coin-link:last-child {
+  border: 0 !important;
 }
 
 .link-name {
@@ -326,6 +340,10 @@ a:hover {
 }
 .chart-title {
   color: #0071bd !important;
+  margin: 20px 0;
+}
+.chart-card {
+  border-radius: 10px !important;
 }
 .price-container {
   display: flex !important;
@@ -383,4 +401,7 @@ a:hover {
 .footer h5 {
   text-align: center;
   color: #ffffff !important;
+}
+.statistics-row {
+  padding: 20px 0;
 }
