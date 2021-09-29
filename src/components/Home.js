@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
+import { DoubleRightOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -68,7 +69,9 @@ const Home = ({ noPadding }) => {
           Top 10 Cryptocurrencies
         </Title>
         <Title level={5} className="show-more">
-          <Link to="/cryptocurrencies">Show more</Link>
+          <Link to="/cryptocurrencies">
+            Show more <DoubleRightOutlined />
+          </Link>
         </Title>
       </div>
       <CryptoCurrencies simplified={true} />
@@ -77,7 +80,9 @@ const Home = ({ noPadding }) => {
           Latest News
         </Title>
         <Title level={5} className="show-more">
-          <Link to="/news">Show more</Link>
+          <Link to="/news">
+            Show more <DoubleRightOutlined />
+          </Link>
         </Title>
       </div>
       <News simplified={true} />

@@ -7,8 +7,9 @@ import {
   DollarOutlined,
   ThunderboltOutlined,
   MenuOutlined,
+  RiseOutlined,
 } from "@ant-design/icons";
-import icon from "../logo.svg";
+// import icon from "../logo.svg";
 
 const { Item } = Menu;
 const { Title } = Typography;
@@ -38,10 +39,13 @@ const Navbar = () => {
   return (
     <div className="nav-container">
       <div className="logo-container">
-        <Title level={2} className="logo">
-          <Avatar src={icon} size="large" />
-          <Link to="/">CryptoStonks</Link>
-        </Title>
+        <Link to="/">
+          <Title level={3} className="logo">
+            {/* <Avatar src={icon} size="large" /> */}
+            <RiseOutlined />
+            CryptoStonks
+          </Title>
+        </Link>
         <Button
           className="menu-control-container"
           onClick={() => setActiveMenu(!activemenu)}

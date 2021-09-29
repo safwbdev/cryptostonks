@@ -33,7 +33,9 @@ const CryptoCurrencies = ({ simplified }) => {
   if (isFetching) return <Loader />;
 
   return (
-    <div className="currency-container">
+    <div
+      className={simplified ? "currency-container-home" : "currency-container"}
+    >
       {simplified && (
         <Slider {...settings} className="crypto-slider">
           {cryptos?.map((currency) => (
