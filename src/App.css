@@ -130,6 +130,16 @@ a:hover {
   .show-more {
     font-size: 1.3rem !important;
   }
+  .global-stat-row {
+    row-gap: 0 !important;
+  }
+  .global-stat-row {
+    text-align: center;
+  }
+}
+
+.global-stat-card {
+  border-radius: 10px !important;
 }
 
 .coin-detail-container {
@@ -243,8 +253,8 @@ a:hover {
 }
 
 .coin-links {
-  padding: 0px 20px;
-  flex: 0.5;
+  /* padding: 0px 20px; */
+  /* flex: 0.5; */
 }
 
 .coin-link {
@@ -260,13 +270,15 @@ a:hover {
 
 .link-name {
   text-transform: capitalize;
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  margin: 0;
+  font-weight: bold;
 }
 
 .coin-link a {
   color: var(--pink);
   font-weight: 700;
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 .coin-link:hover,
