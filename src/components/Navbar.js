@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Typography, Avatar, Button } from "antd";
+import { Menu, Typography, Button } from "antd";
 import {
   HomeOutlined,
   FundOutlined,
