@@ -23,7 +23,7 @@ const App = () => {
           <div className="routes">
             <Switch>
               <Route exact path="/">
-                <Home />
+                <Home noPadding={true} />
               </Route>
               <Route exact path="/exchanges">
                 <Exchanges />

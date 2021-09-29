@@ -7,7 +7,7 @@ import millify from "millify";
 
 const { Title } = Typography;
 
-const Home = () => {
+const Home = ({ noPadding }) => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
   const column = 8;
@@ -16,12 +16,12 @@ const Home = () => {
   //   console.log(globalStats);
 
   return (
-    <>
+    <div className="home-container">
       <Title level={2} className="heading">
         Global Crypto Statistics
       </Title>
       <Row gutter={[32, 32]} className="global-stat-row">
-        <Col xs={12} sm={12} lg={column}>
+        <Col xs={24} sm={12} lg={column}>
           <Card className="global-stat-card">
             <Statistic
               title="Total CryptoCurrencies"
@@ -53,7 +53,7 @@ const Home = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={column}>
+        <Col xs={12} sm={12} lg={column}>
           <Card className="global-stat-card">
             <Statistic
               title="Total Markets"
@@ -80,7 +80,7 @@ const Home = () => {
         </Title>
       </div>
       <News simplified={true} />
-    </>
+    </div>
   );
 };
 

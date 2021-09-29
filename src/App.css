@@ -31,9 +31,9 @@ a:hover {
   flex: 0.8;
   width: 100%;
 }
-.routes {
+/* .routes {
   padding: 20px;
-}
+} */
 .nav-container {
   /* position: fixed; */
   left: 0;
@@ -149,6 +149,19 @@ a:hover {
   .select-news {
     width: 100%;
   }
+  /* .crypto-card-container-home {
+    display: none !important;
+  }
+  .crypto-slider {
+    display: block !important;
+  } */
+  /* .crypto-card-container {
+    display: none !important;
+    border: 1px solid red;
+  } */
+  /* .crypto-slider {
+    display: block;
+  } */
 }
 
 .global-stat-card {
@@ -403,7 +416,7 @@ a:hover {
   /* min-height: 65vh !important; */
 }
 .crypto-card {
-  min-width: 250px;
+  /* min-width: 250px; */
 }
 .crypto-card .ant-card {
   border-radius: 10px;
@@ -434,4 +447,51 @@ a:hover {
   max-width: 200px;
   max-height: 100px;
   border-radius: 10px;
+}
+.crypto-slider {
+  display: none !important;
+}
+.crypto-slider .crypto-card {
+  padding: 0 5px;
+}
+.crypto-news-slider {
+  display: none !important;
+}
+.crypto-news-slider .crypto-news-card {
+  padding: 0 5px;
+}
+.container {
+  padding: 20px;
+}
+.home-heading-container,
+.currency-container,
+.crypto-news-container-home,
+.crypto-news-container {
+  padding: 20px;
+}
+.global-stat-row {
+  padding: 0 20px;
+}
+.home-container .heading {
+  padding: 20px 0 0 20px;
+}
+.home-container .currency-container {
+  padding-top: 0;
+}
+@media screen and (max-width: 800px) {
+  .crypto-card-container-home {
+    display: none !important;
+  }
+  .crypto-news-container-home {
+    display: none !important;
+  }
+  .crypto-slider {
+    display: block !important;
+  }
+  .crypto-news-slider {
+    display: block !important;
+  }
+  .currency-container {
+    padding: 0;
+  }
 }
