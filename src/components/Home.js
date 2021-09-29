@@ -21,7 +21,7 @@ const Home = () => {
         Global Crypto Statistics
       </Title>
       <Row gutter={[32, 32]} className="global-stat-row">
-        <Col xs={24} sm={12} lg={column}>
+        <Col xs={12} sm={12} lg={column}>
           <Card className="global-stat-card">
             <Statistic
               title="Total CryptoCurrencies"
@@ -29,7 +29,7 @@ const Home = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={column}>
+        <Col xs={12} sm={12} lg={column}>
           <Card className="global-stat-card">
             <Statistic
               title="Total Exchange"
@@ -37,7 +37,7 @@ const Home = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={column}>
+        <Col xs={12} sm={12} lg={column}>
           <Card className="global-stat-card">
             <Statistic
               title="Total Market Cap"
@@ -45,7 +45,7 @@ const Home = () => {
             />
           </Card>
         </Col>
-        <Col xs={24} sm={12} lg={column}>
+        <Col xs={12} sm={12} lg={column}>
           <Card className="global-stat-card">
             <Statistic
               title="Total 24 Hour Volume"

@@ -52,11 +52,11 @@ const News = ({ simplified }) => {
             <a href={news.url} target="blank" rel="noreferrer">
               <div className="news-image-container">
                 <img
-                  style={{
-                    maxWidth: "200px",
-                    maxHeight: "100px",
-                    borderRadius: "10px",
-                  }}
+                  // style={{
+                  //   maxWidth: "200px",
+                  //   maxHeight: "100px",
+                  //   borderRadius: "10px",
+                  // }}
                   src={news?.image?.thumbnail?.contentUrl || demoImage}
                   alt="news"
                 />
