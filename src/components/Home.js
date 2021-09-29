@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Row, Col, Statistic, Card } from "antd";
 import { CryptoCurrencies, News } from ".";
+import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
@@ -12,7 +13,7 @@ const Home = ({ noPadding }) => {
   const globalStats = data?.data?.stats;
   const column = 8;
 
-  if (isFetching) return "Loading";
+  if (isFetching) return <Loader />;
   //   console.log(globalStats);
 
   return (

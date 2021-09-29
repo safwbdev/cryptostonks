@@ -19,6 +19,7 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 import LineChart from "./LineChart";
+import Loader from "./Loader";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -36,7 +37,7 @@ const CryptoDetails = () => {
 
   const cryptoDetails = data?.data?.coin;
 
-  if (isFetching) return "Loading ...";
+  if (isFetching) return <Loader />;
 
   const stats = [
     {

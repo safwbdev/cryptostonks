@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
+import Loader from "./Loader";
 import moment from "moment";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Slider from "react-slick";
@@ -30,7 +31,7 @@ const News = ({ simplified }) => {
 
   // console.log(cryptoNews);
 
-  if (!cryptoNews?.value) return "Loading...";
+  if (!cryptoNews?.value) return <Loader />;
 
   return (
     <>

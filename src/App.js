@@ -46,8 +46,7 @@ const App = () => {
             <br /> All rights reserved.
           </Title>
           <Space>
-            <Link to="/">Home</Link>
-            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/">Home</Link> | <Link to="/exchanges">Exchanges</Link> |
             <Link to="/news">News</Link>
           </Space>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { Row, Col, Card, Input } from "antd";
+import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import millify from "millify";
 import Slider from "react-slick";
@@ -29,7 +30,7 @@ const CryptoCurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptoList, search]);
 
-  if (isFetching) return "Loading ...";
+  if (isFetching) return <Loader />;
 
   return (
     <div className="currency-container">
