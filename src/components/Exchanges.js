@@ -21,7 +21,6 @@ const Exchanges = () => {
         <Col span={6}>Changes</Col>
       </Row>
       <Row>
-        {" "}
         {exchangeList.map((exchange) => (
           <Col span={24}>
             <Collapse>

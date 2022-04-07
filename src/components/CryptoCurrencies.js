@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import millify from "millify";
 import Slider from "react-slick";
+import { CRYPTO_CAP, CRYPTO_CHANGE, CRYPTO_PRICE } from "../constants/lang";
 
 const CryptoCurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -39,8 +40,8 @@ const CryptoCurrencies = ({ simplified }) => {
       {simplified && (
         <Slider {...settings} className="crypto-slider">
           {cryptos?.map((currency) => (
-            <div className="crypto-card" key={currency.id}>
-              <Link to={`/crypto/${currency.id}`}>
+            <div className="crypto-card" key={currency.uuid}>
+              <Link to={`/crypto/${currency.uuid}`}>
                 <Card
                   title={`${currency.rank} | ${currency.name}`}
                   extra={
@@ -52,9 +53,15 @@ const CryptoCurrencies = ({ simplified }) => {
                   }
                   hoverable
                 >
-                  <p>Price : {millify(currency.price)}</p>
-                  <p>Market Cap : {millify(currency.marketCap)}</p>
-                  <p>Daily Change : {millify(currency.change)}</p>
+                  <p>
+                    {CRYPTO_PRICE} {millify(currency.price)}
+                  </p>
+                  <p>
+                    {CRYPTO_CAP} {millify(currency.marketCap)}
+                  </p>
+                  <p>
+                    {CRYPTO_CHANGE} {millify(currency.change)}
+                  </p>
                 </Card>
               </Link>
             </div>
@@ -76,8 +83,14 @@ const CryptoCurrencies = ({ simplified }) => {
         }
       >
         {cryptos?.map((currency) => (
-          <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.id}>
-            <Link to={`/crypto/${currency.id}`}>
+          <Col
+            xs={24}
+            sm={12}
+            lg={6}
+            className="crypto-card"
+            key={currency.uuid}
+          >
+            <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank} | ${currency.name}`}
                 extra={
@@ -89,9 +102,15 @@ const CryptoCurrencies = ({ simplified }) => {
                 }
                 hoverable
               >
-                <p>Price : {millify(currency.price)}</p>
-                <p>Market Cap : {millify(currency.marketCap)}</p>
-                <p>Daily Change : {millify(currency.change)}</p>
+                <p>
+                  {CRYPTO_PRICE} {millify(currency.price)}
+                </p>
+                <p>
+                  {CRYPTO_CAP} {millify(currency.marketCap)}
+                </p>
+                <p>
+                  {CRYPTO_CHANGE} {millify(currency.change)}
+                </p>
               </Card>
             </Link>
           </Col>

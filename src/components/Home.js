@@ -1,90 +1,59 @@
 import React from "react";
-import { Typography, Row, Col, Statistic, Card } from "antd";
+import { Typography, Row } from "antd";
 import { CryptoCurrencies, News } from ".";
 import Loader from "./Loader";
-import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
-import { DoubleRightOutlined } from "@ant-design/icons";
+import {
+  GLOBAL,
+  LATEST_NEWS,
+  TOP_TEN,
+  TOTAL_CAP,
+  TOTAL_CURRENCY,
+  TOTAL_EXCHANGE,
+  TOTAL_MARKET,
+  TOTAL_VOLUME,
+} from "../constants/lang";
+import Header from "./Header";
+import { currencies, news } from "../constants/routes";
+import GlobalStat from "./GlobalStat";
 
 const { Title } = Typography;
 
 const Home = ({ noPadding }) => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
-  const column = 8;
+  // const column = 8;
 
   if (isFetching) return <Loader />;
-  //   console.log(globalStats);
 
   return (
     <div className="home-container">
       <Title level={2} className="heading">
-        Global Crypto Statistics
+        {GLOBAL}
       </Title>
       <Row gutter={[32, 32]} className="global-stat-row">
-        <Col xs={24} sm={12} lg={column}>
-          <Card className="global-stat-card">
-            <Statistic
-              title="Total CryptoCurrencies"
-              value={globalStats.total}
-            />
-          </Card>
-        </Col>
-        <Col xs={12} sm={12} lg={column}>
-          <Card className="global-stat-card">
-            <Statistic
-              title="Total Exchange"
-              value={millify(globalStats.totalExchanges)}
-            />
-          </Card>
-        </Col>
-        <Col xs={12} sm={12} lg={column}>
-          <Card className="global-stat-card">
-            <Statistic
-              title="Total Market Cap"
-              value={millify(globalStats.totalMarketCap)}
-            />
-          </Card>
-        </Col>
-        <Col xs={12} sm={12} lg={column}>
-          <Card className="global-stat-card">
-            <Statistic
-              title="Total 24 Hour Volume"
-              value={millify(globalStats.total24hVolume)}
-            />
-          </Card>
-        </Col>
-        <Col xs={12} sm={12} lg={column}>
-          <Card className="global-stat-card">
-            <Statistic
-              title="Total Markets"
-              value={millify(globalStats.totalMarkets)}
-            />
-          </Card>
-        </Col>
+        <GlobalStat title={TOTAL_CURRENCY} value={globalStats.total} />
+        <GlobalStat
+          title={TOTAL_EXCHANGE}
+          value={millify(globalStats.totalExchanges)}
+        />
+        <GlobalStat
+          title={TOTAL_CAP}
+          value={millify(globalStats.totalMarketCap)}
+        />
+        <GlobalStat
+          title={TOTAL_VOLUME}
+          value={millify(globalStats.total24hVolume)}
+        />
+        <GlobalStat
+          title={TOTAL_MARKET}
+          value={millify(globalStats.totalMarkets)}
+        />
       </Row>
-      <div className="home-heading-container">
-        <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies
-        </Title>
-        <Title level={5} className="show-more">
-          <Link to="/cryptocurrencies">
-            Show more <DoubleRightOutlined />
-          </Link>
-        </Title>
-      </div>
+      <Header title={TOP_TEN} url={currencies} />
       <CryptoCurrencies simplified={true} />
-      <div className="home-heading-container">
-        <Title level={2} className="home-title">
-          Latest News
-        </Title>
-        <Title level={5} className="show-more">
-          <Link to="/news">
-            Show more <DoubleRightOutlined />
-          </Link>
-        </Title>
-      </div>
+      <Header title={LATEST_NEWS} url={news} />
       <News simplified={true} />
     </div>
   );

@@ -1,16 +1,17 @@
 import React from "react";
 import "./App.css";
-import { Switch, Route, Link } from "react-router-dom";
-import { Layout, Typography, Space } from "antd";
+import { Switch, Route } from "react-router-dom";
+import { Layout } from "antd";
 import {
   CryptoCurrencies,
   CryptoDetails,
-  Exchanges,
+  // Exchanges,
   Home,
   Navbar,
   News,
+  Footer,
 } from "./components";
-const { Title } = Typography;
+import { currencies, news, root } from "./constants/routes";
 
 const App = () => {
   return (
@@ -22,34 +23,25 @@ const App = () => {
         <Layout>
           <div className="routes">
             <Switch>
-              <Route exact path="/">
+              <Route exact path={root}>
                 <Home noPadding={true} />
               </Route>
-              <Route exact path="/exchanges">
+              {/* <Route exact path={exchanges}>
                 <Exchanges />
-              </Route>
-              <Route exact path="/cryptocurrencies">
+              </Route> */}
+              <Route exact path={currencies}>
                 <CryptoCurrencies />
               </Route>
               <Route exact path="/crypto/:id">
                 <CryptoDetails />
               </Route>
-              <Route exact path="/news">
+              <Route exact path={news}>
                 <News />
               </Route>
             </Switch>
           </div>
         </Layout>
-        <div className="footer">
-          <Title level={5}>
-            Crypto Stonks
-            <br /> All rights reserved.
-          </Title>
-          <Space>
-            <Link to="/">Home</Link> | <Link to="/exchanges">Exchanges</Link> |
-            <Link to="/news">News</Link>
-          </Space>
-        </div>
+        <Footer />
       </div>
     </div>
   );

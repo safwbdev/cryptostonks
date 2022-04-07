@@ -3,12 +3,20 @@ import { Link } from "react-router-dom";
 import { Menu, Typography, Button } from "antd";
 import {
   HomeOutlined,
-  FundOutlined,
+  // FundOutlined,
   DollarOutlined,
   ThunderboltOutlined,
   MenuOutlined,
   RiseOutlined,
 } from "@ant-design/icons";
+import {
+  MENU_CURRENCIES,
+  // MENU_EXCHANGES,
+  MENU_HOME,
+  MENU_NEWS,
+  SITE_NAME,
+} from "../constants/lang";
+import { currencies, news, root } from "../constants/routes";
 // import icon from "../logo.svg";
 
 const { Item } = Menu;
@@ -20,11 +28,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
-
     window.addEventListener("resize", handleResize);
-
     handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -43,7 +48,7 @@ const Navbar = () => {
           <Title level={3} className="logo">
             {/* <Avatar src={icon} size="large" /> */}
             <RiseOutlined />
-            CryptoStonks
+            {SITE_NAME}
           </Title>
         </Link>
         <Button
@@ -55,17 +60,17 @@ const Navbar = () => {
       </div>
       {activemenu && (
         <Menu theme="dark">
-          <Item icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
+          <Item icon={<HomeOutlined />} key="nav_1">
+            <Link to={root}>{MENU_HOME}</Link>
           </Item>
-          <Item icon={<DollarOutlined />}>
-            <Link to="/cryptocurrencies">Crypto Currencies</Link>
+          <Item icon={<DollarOutlined />} key="nav_2">
+            <Link to={currencies}>{MENU_CURRENCIES}</Link>
           </Item>
-          <Item icon={<FundOutlined />}>
-            <Link to="/exchanges">Exchanges</Link>
-          </Item>
-          <Item icon={<ThunderboltOutlined />}>
-            <Link to="/news">News</Link>
+          {/* <Item icon={<FundOutlined />} key="nav_3">
+            <Link to={exchanges}>{MENU_EXCHANGES}</Link>
+          </Item> */}
+          <Item icon={<ThunderboltOutlined />} key="nav_4">
+            <Link to={news}>{MENU_NEWS}</Link>
           </Item>
         </Menu>
       )}

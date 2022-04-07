@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import Loader from "./Loader";
@@ -29,8 +28,6 @@ const News = ({ simplified }) => {
     slidesToScroll: 1,
   };
 
-  // console.log(cryptoNews);
-
   if (!cryptoNews?.value) return <Loader />;
 
   return (
@@ -38,7 +35,7 @@ const News = ({ simplified }) => {
       {simplified && (
         <Slider {...settings} className="crypto-news-slider">
           {cryptoNews.value?.map((news, i) => (
-            <div className="crypto-news-card" key={news.id}>
+            <div className="crypto-news-card" key={i}>
               <Card hoverable className="news-card">
                 <a href={news.url} target="blank" rel="noreferrer">
                   <div className="news-image-container">
