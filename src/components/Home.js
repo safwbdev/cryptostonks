@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Row } from "antd";
 import { CryptoCurrencies, News } from ".";
-import Loader from "./Loader";
+import Loader from "./Layout/Loader";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
 import {
@@ -14,13 +14,13 @@ import {
   TOTAL_MARKET,
   TOTAL_VOLUME,
 } from "../constants/lang";
-import Header from "./Header";
+import { Header } from "./";
 import { currencies, news } from "../constants/routes";
 import GlobalStat from "./GlobalStat";
 
 const { Title } = Typography;
 
-const Home = ({ noPadding }) => {
+const Home = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
   // const column = 8;

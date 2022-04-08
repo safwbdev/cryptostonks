@@ -4,7 +4,7 @@ import { DETAILS_LINKS } from "../../constants/lang";
 
 const Links = ({ data: { name, links } }) => {
   return (
-    <Col xs={24} sm={12} lg={8} className="coin-links">
+    <Col xs={24} sm={12} lg={12} className="coin-links">
       <Card className="coin-links-card">
         <Typography.Title level={3} className="coin-details-heading">
           {name} {DETAILS_LINKS}

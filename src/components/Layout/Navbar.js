@@ -11,13 +11,11 @@ import {
 } from "@ant-design/icons";
 import {
   MENU_CURRENCIES,
-  // MENU_EXCHANGES,
   MENU_HOME,
   MENU_NEWS,
   SITE_NAME,
-} from "../constants/lang";
-import { currencies, news, root } from "../constants/routes";
-// import icon from "../logo.svg";
+} from "../../constants/lang";
+import { currencies, news, root } from "../../constants/routes";
 
 const { Item } = Menu;
 const { Title } = Typography;
@@ -46,7 +44,6 @@ const Navbar = () => {
       <div className="logo-container">
         <Link to="/">
           <Title level={3} className="logo">
-            {/* <Avatar src={icon} size="large" /> */}
             <RiseOutlined />
             {SITE_NAME}
           </Title>
@@ -66,9 +63,6 @@ const Navbar = () => {
           <Item icon={<DollarOutlined />} key="nav_2">
             <Link to={currencies}>{MENU_CURRENCIES}</Link>
           </Item>
-          {/* <Item icon={<FundOutlined />} key="nav_3">
-            <Link to={exchanges}>{MENU_EXCHANGES}</Link>
-          </Item> */}
           <Item icon={<ThunderboltOutlined />} key="nav_4">
             <Link to={news}>{MENU_NEWS}</Link>
           </Item>

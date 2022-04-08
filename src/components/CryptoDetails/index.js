@@ -6,7 +6,7 @@ import {
   useGetCryptoHistoryQuery,
 } from "../../services/cryptoApi";
 
-import Loader from "../Loader";
+import Loader from "../Layout/Loader";
 import { time } from "../../constants/time";
 import Heading from "./Heading";
 import ValueStatistics from "./ValueStatistics";

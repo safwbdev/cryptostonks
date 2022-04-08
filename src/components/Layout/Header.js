@@ -1,5 +1,5 @@
 import React from "react";
-import { SHOW_MORE } from "../constants/lang";
+import { SHOW_MORE } from "../../constants/lang";
 import { Link } from "react-router-dom";
 import { Typography } from "antd";
 import { DoubleRightOutlined } from "@ant-design/icons";

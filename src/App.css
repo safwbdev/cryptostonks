@@ -239,6 +239,7 @@ a:hover {
 .coin-links-card {
   /* .coin-stats-card { */
   border-radius: 10px !important;
+  height: 100%;
 }
 
 .coin-stats-name {

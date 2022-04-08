@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useGetCryptosQuery } from "../services/cryptoApi";
-import { Row, Col, Card, Input } from "antd";
-import Loader from "./Loader";
-import { Link } from "react-router-dom";
-import millify from "millify";
+import { useGetCryptosQuery } from "../../services/cryptoApi";
+import { Row, Col, Input } from "antd";
+import Loader from "../Layout/Loader";
 import Slider from "react-slick";
-import { CRYPTO_CAP, CRYPTO_CHANGE, CRYPTO_PRICE } from "../constants/lang";
+import CryptoCard from "./CryptoCard";
 
 const CryptoCurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -41,29 +39,7 @@ const CryptoCurrencies = ({ simplified }) => {
         <Slider {...settings} className="crypto-slider">
           {cryptos?.map((currency) => (
             <div className="crypto-card" key={currency.uuid}>
-              <Link to={`/crypto/${currency.uuid}`}>
-                <Card
-                  title={`${currency.rank} | ${currency.name}`}
-                  extra={
-                    <img
-                      className="crypto-image"
-                      src={currency.iconUrl}
-                      alt={currency.name}
-                    />
-                  }
-                  hoverable
-                >
-                  <p>
-                    {CRYPTO_PRICE} {millify(currency.price)}
-                  </p>
-                  <p>
-                    {CRYPTO_CAP} {millify(currency.marketCap)}
-                  </p>
-                  <p>
-                    {CRYPTO_CHANGE} {millify(currency.change)}
-                  </p>
-                </Card>
-              </Link>
+              <CryptoCard data={currency} />
             </div>
           ))}
         </Slider>
@@ -90,29 +66,7 @@ const CryptoCurrencies = ({ simplified }) => {
             className="crypto-card"
             key={currency.uuid}
           >
-            <Link to={`/crypto/${currency.uuid}`}>
-              <Card
-                title={`${currency.rank} | ${currency.name}`}
-                extra={
-                  <img
-                    className="crypto-image"
-                    src={currency.iconUrl}
-                    alt={currency.name}
-                  />
-                }
-                hoverable
-              >
-                <p>
-                  {CRYPTO_PRICE} {millify(currency.price)}
-                </p>
-                <p>
-                  {CRYPTO_CAP} {millify(currency.marketCap)}
-                </p>
-                <p>
-                  {CRYPTO_CHANGE} {millify(currency.change)}
-                </p>
-              </Card>
-            </Link>
+            <CryptoCard data={currency} />
           </Col>
         ))}
       </Row>

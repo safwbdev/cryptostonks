@@ -5,7 +5,7 @@ import { DETAILS_WHAT } from "../../constants/lang";
 
 const Description = ({ data: { name, description } }) => {
   return (
-    <Col xs={24} sm={24} lg={16}>
+    <Col xs={24} sm={24} lg={12}>
       <Card className="coin-stats-card">
         <Row className="coin-desc">
           <Typography.Title level={3} className="coin-details-heading">

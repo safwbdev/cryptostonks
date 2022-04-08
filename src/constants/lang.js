@@ -3,6 +3,7 @@ export const TOP_TEN = "Top 10 Cryptocurrencies";
 export const SHOW_MORE = "Show more";
 export const LATEST_NEWS = "Latest News";
 export const SITE_NAME = "CryptoStonks";
+export const RIGHTS = "All rights reserved.";
 
 export const MENU_HOME = "Home";
 export const MENU_CURRENCIES = "Crypto Currencies";
@@ -38,3 +39,6 @@ export const CHART_TITLE = "Price Chart";
 export const CHART_CHANGE = "Change :";
 export const CHART_CURRENT = "Current";
 export const CHART_PRICE_2 = "Price : $";
+
+export const DEMO_IMAGE =
+  "https://images.pexels.com/photos/1203803/pexels-photo-1203803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";

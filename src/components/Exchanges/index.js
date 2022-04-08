@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col, Typography, Avatar, Collapse } from "antd";
-import { useGetExchangesQuery } from "../services/cryptoApi";
+import { useGetExchangesQuery } from "../../services/cryptoApi";
 import HTMLReactParser from "html-react-parser";
-import Loader from "./Loader";
+import Loader from "../Layout/Loader";
 import millify from "millify";
 const { Text } = Typography;
 const { Panel } = Collapse;
