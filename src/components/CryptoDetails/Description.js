@@ -11,7 +11,7 @@ const Description = ({ data: { name, description } }) => {
           <Typography.Title level={3} className="coin-details-heading">
             {DETAILS_WHAT} {name}?
           </Typography.Title>
-          <p>{HTMLParser(description)}</p>
+          <div>{HTMLParser(description)}</div>
         </Row>
       </Card>
     </Col>

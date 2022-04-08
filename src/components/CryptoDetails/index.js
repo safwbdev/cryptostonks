@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { Row, Col, Select } from "antd";
 import {
   useGetCryptoDetailsQuery,
-  //   // useGetCryptoHistoryQuery,
+  useGetCryptoHistoryQuery,
 } from "../../services/cryptoApi";
 
 import Loader from "../Loader";
@@ -13,7 +13,8 @@ import ValueStatistics from "./ValueStatistics";
 import OtherStatistics from "./OtherStatistics";
 import Links from "./Links";
 import Description from "./Description";
-// import LineChart from "./LineChart";
+import LineChart from "./LineChart";
+import millify from "millify";
 
 const { Option } = Select;
 
@@ -21,10 +22,10 @@ const CryptoDetails = () => {
   const { id } = useParams();
   const [timeperiod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(id);
-  // const { data: coinHistory } = useGetCryptoHistoryQuery({
-  //   id,
-  //   timeperiod,
-  // });
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    id,
+    timeperiod,
+  });
 
   const cryptoDetails = data?.data?.coin;
 
@@ -45,11 +46,11 @@ const CryptoDetails = () => {
             <Option key={date}>{date}</Option>
           ))}
         </Select>
-        {/* <LineChart
+        <LineChart
           coinHistory={coinHistory}
           currentPrice={millify(cryptoDetails.price)}
           coinName={cryptoDetails.name}
-        /> */}
+        />
         <Row gutter={[32, 32]} className="statistics-row">
           <ValueStatistics data={cryptoDetails} />
           <OtherStatistics data={cryptoDetails} />

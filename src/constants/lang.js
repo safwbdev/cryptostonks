@@ -32,3 +32,9 @@ export const DEATAILS_OTHER_DESC =
   "An overview showing the stats of all the cryptocurrencies";
 export const DETAILS_VALUE_TITLE = "Value Statistics";
 export const DETAILS_VALUE_DESC = "An overview showing the stats of";
+
+export const CHART_PRICE = "Price In USD";
+export const CHART_TITLE = "Price Chart";
+export const CHART_CHANGE = "Change :";
+export const CHART_CURRENT = "Current";
+export const CHART_PRICE_2 = "Price : $";
