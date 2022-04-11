@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { currencies, news, root } from "./constants/routes";
 import { Switch, Route } from "react-router-dom";
 import { Layout } from "antd";
 import {
@@ -10,7 +11,6 @@ import {
   News,
   Footer,
 } from "./components";
-import { currencies, news, root } from "./constants/routes";
 
 const App = () => {
   return (

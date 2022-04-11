@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useGetCryptosQuery } from "../../services/cryptoApi";
+import { useGetCryptosQuery } from "../../redux/api/cryptoApi";
 import { Row, Col, Input } from "antd";
 import Loader from "../Layout/Loader";
 import Slider from "react-slick";

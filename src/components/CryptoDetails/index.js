@@ -4,8 +4,7 @@ import { Row, Col, Select } from "antd";
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
-} from "../../services/cryptoApi";
-
+} from "../../redux/api/cryptoApi";
 import Loader from "../Layout/Loader";
 import { time } from "../../constants/time";
 import Heading from "./Heading";

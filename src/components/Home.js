@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Row } from "antd";
 import { CryptoCurrencies, News } from ".";
 import Loader from "./Layout/Loader";
-import { useGetCryptosQuery } from "../services/cryptoApi";
+import { useGetCryptosQuery } from "../redux/api/cryptoApi";
 import millify from "millify";
 import {
   GLOBAL,
@@ -14,8 +14,8 @@ import {
   TOTAL_MARKET,
   TOTAL_VOLUME,
 } from "../constants/lang";
-import { Header } from "./";
 import { currencies, news } from "../constants/routes";
+import { Header } from "./";
 import GlobalStat from "./GlobalStat";
 
 const { Title } = Typography;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Select, Row, Col } from "antd";
-import { useGetCryptoNewsQuery } from "../../services/cryptoNewsApi";
+import { useGetCryptoNewsQuery } from "../../redux/api/cryptoNewsApi";
+import { useGetCryptosQuery } from "../../redux/api/cryptoApi";
 import Loader from "../Layout/Loader";
-import { useGetCryptosQuery } from "../../services/cryptoApi";
 import Slider from "react-slick";
 import NewsCard from "./NewsCard";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Typography, Avatar, Collapse } from "antd";
-import { useGetExchangesQuery } from "../../services/cryptoApi";
+import { useGetExchangesQuery } from "../../redux/api/cryptoApi";
 import HTMLReactParser from "html-react-parser";
 import Loader from "../Layout/Loader";
 import millify from "millify";
